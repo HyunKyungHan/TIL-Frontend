@@ -1,0 +1,91 @@
+body{
+    font-family:'Courier New', Courier, monospace;
+    line-height: 1.5em;
+    margin: 0;
+    font-weight: 300;
+    background-color: #333;
+    display: flex;
+    justify-content:center; /*수평 중앙*/
+    align-items: center; /*수직 중앙*/
+    height: 100vh;
+}
+
+.square {
+    width: 400px;
+    height: 400px;
+    position:relative; /*부모 요소*/
+    margin: 40px; /*square들 사이 거리두기 */
+}
+.square span {
+    position: absolute; /*자식 요소*/
+    width: 100%;
+    height: 100%;
+    border: 1px solid white;
+    border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;  /* '/'를 사용해서 border radius를 중첩하여 사용 가능*/
+    transition: 0.5s;  /*마우스 hover했을 때 background-color 바뀌게 하는 transition을 의미한 */
+}
+.square:hover span{
+    background-color: crimson;
+    border: none;
+}
+
+.square span:nth-child(1) {
+    animation: circle 6s linear infinite;
+}
+.square span:nth-child(2) {
+    animation: circle 4s linear infinite;
+    animation-direction: reverse;
+}
+.square span:nth-child(3) {
+    animation: circle 10s linear infinite;
+}
+.square:hover span:nth-child(1) {
+    opacity: 0.2;
+}
+.square:hover span:nth-child(2) {
+    opacity: 0.5;
+}
+.square:hover span:nth-child(3) {
+    opacity: 0.7;
+}
+.square:nth-child(1):hover span{
+    border:none;
+    background-color: crimson;
+}
+.square:nth-child(2):hover span{
+    border:none;
+    background-color: yellowgreen;
+}
+.square:nth-child(3):hover span{
+    border:none;
+    background-color: dodgerblue;
+}
+@keyframes circle {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.square div{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /*뭔지 알아보기*/
+    width: 70%; /*div가 position속성 때문에 부모의 속성인 inline-block속성을 가지게 됨.*/
+    text-align: center;
+    color: whitesmoke;
+}
+.square div a{
+    color: whitesmoke;
+    border: 1px solid white;
+    padding: 15px;
+    border-radius: 40% 60% 65% 35% / 40% 45% 55% 60%;
+    text-decoration: none;
+}
+
+.container{
+    display: flex;  /*container의 자식요소들 가로배치 */
+}
