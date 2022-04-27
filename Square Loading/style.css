@@ -1,0 +1,61 @@
+body{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/*loading 영역 안에서 span이 돌게 만든다. */
+.loading{
+    width: 30px;
+    height: 30px;
+    position: relative;  /*부모요소*/
+
+}
+.loading span{
+    position: absolute; /*.loading의 자식요소임을 설정*/
+    background-color: crimson;
+    width: 10px;
+    height: 10px;
+    top: 0;
+    left: 0;
+    animation: loading 1.5s infinite;
+    /*keyframe들이 넘어갈 때 부드러운 효과를 주지 않기 위해 linear작성하지 않음*/
+
+}
+.loading span:nth-child(1){
+    background-color: crimson;
+}
+.loading span:nth-child(2){
+    animation-delay: 0.8s;
+}
+
+@keyframes loading{
+    0%{
+        top: 0;
+        left: 0;
+    }
+    25%{
+        top:0;
+        left: calc(100% - 10px);  /*부모요소의 경계선 안쪽으로 span들이 돌게함. */
+        /*keyframe에서는 twining을 해야하기(?)때문에 right:0;라고 하면 animation 적용이 안된다.*/
+        background-color: dodgerblue;
+    }
+    50%{
+        top: calc(100% - 10px);
+        left: calc(100% - 10px);
+        background-color: orange;
+    }
+    75%{
+        top: calc(100% - 10px);
+        left: 0;
+        background-color: yellowgreen;
+    }
+    100%{
+        top: 0;
+        left: 0;
+        /*처음 상태 그대로*/
+    }
+    /* 모서리가 4개이므로 제자리에 돌아오는 순서까지 세서 5개 생성 */
+}
