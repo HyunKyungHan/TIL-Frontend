@@ -1,0 +1,44 @@
+
+
+body{
+    color: #222;
+    line-height: 1.5em;
+    font-weight: 300;
+    background-color: plum;
+    margin: 0;
+}
+a{
+    color: #222;
+    text-decoration: none;
+}
+.gnb{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);  /*Y축 기준 항상 위에서 50%지점에 배치되도록 함.*/
+    left: 50px;
+}
+.gnb a{
+    display: block;  /*inline요소인 a tag를 block으로 설정해 세로 배치함*/
+    font-size: 40px;
+    margin: 30px 0;
+    color: #fff;
+    transition: 0.5s;
+}
+.gnb:hover a{
+    opacity: 0.3;    /*gnb 전체 영역위에 hover하면 전체 opacity가 바뀐다.*/
+}
+.gnb a:hover {
+    opacity: 1;     /*gnb내의 hover한 a tag만 opacity가 1로 바뀐다.*/
+}
+
+/*.gnb:hover a 와 .gnb a:hover의 순서를 바꾸면 실행이 되지 않는다. hover한 a tag값의 opacity를 1로 바꾸자마자 전체 opacity가 0.3이 되기 때문이다.*/
+
+.gnb a:before {
+    content: '>';
+    margin: 5px;
+    opacity: 0;
+}
+
+.gnb a:hover:before{
+    opacity: 1;       /*a tag에 hover되었을 때만 '>'표시가 나타나게 함*/
+}
