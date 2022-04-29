@@ -1,0 +1,37 @@
+.container{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.app-ui{
+    width: 340px;
+    height: 640px;
+    transform: rotate(-30deg) skewX(20deg);   /*rotate 만으로는 기울어진 앱 화면을 표현하기 어색하기 때문에 skew속성을 함께 사용해야 한다. transform 사용 시 주의사항: 같은 class에 대해 transform을 따로 두 번 사용하면 아래 쓴 코드가 위의 코드를 덮어쓴다. 따라서 하나 이상의 속성을 적용하는 경우 무조건 한 줄에 써야함.*/
+    position: relative;   /*부모요소*/
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+    background-color: #eee;
+}
+.app-ui:hover{
+    box-shadow: -50px 100px 60px rgba(0, 0, 0, 0.3);
+}
+.app-ui img{
+    position: absolute;   /*자식요소 -> 4장의 사진의 모서리가 한군데로 모인다.*/
+    transition: 0.5s;   /*img에 적용해야 한다.(img:hover가 아니고!)*/
+}
+.app-ui:hover img:nth-child(1){
+    transform: translate(40px, -40px);   /*transform: translate; 을 통해 위치 이동 가능. ()안에 x축, y축 이동 거리 작성.*/
+    opacity: 0.4;
+}
+.app-ui:hover img:nth-child(2){
+    transform: translate(80px, -80px);   /*transform: translate; 을 통해 위치 이동 가능. ()안에 x축, y축 이동 거리 작성.*/
+    opacity: 0.6;
+}
+.app-ui:hover img:nth-child(3){
+    transform: translate(120px, -120px);   /*transform: translate; 을 통해 위치 이동 가능. ()안에 x축, y축 이동 거리 작성.*/
+    opacity: 0.8;
+}
+.app-ui:hover img:nth-child(4){
+    transform: translate(160px, -160px);   /*transform: translate; 을 통해 위치 이동 가능. ()안에 x축, y축 이동 거리 작성.*/
+}
