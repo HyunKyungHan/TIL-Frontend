@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function-basics</title>
+</head>
+<body>
+    <h2>Parameter & Argument</h2>
+    <script>
+        function onePlusOne(){
+            document.write(1+1+'<br>');
+        }
+        onePlusOne();
+
+        function sum(left, right){
+            document.write(left+right+'<br>');
+        }
+
+        function sunColorRed(left, right){
+            document.write('<div style = "color:red">'+left+right+'</div><br>');
+        }
+        sum(2,3);
+        sumColorRed(2,3);
+        sum(3,4);
+    </script>
+
+    <h2>Return</h2>      <!--return값이 존재하는 함수-->
+    <script>
+        function sum2(left, right){
+            return left+right;
+        }
+        document.write(sum2(2,3)+'<br>');
+        document.write('<div style = "color:red">'+sum2(2,3)+'</div>');        //css코드를 사용해 return값에 style속성을 줄 수 있음.
+        document.write('<div style = "font-size: 3rem;">'+sum2(2,3)+'</div>');
+    </script>
+</body>
+</html>
