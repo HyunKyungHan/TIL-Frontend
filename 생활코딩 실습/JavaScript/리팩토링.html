@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+</head>
+<body>
+    <h1><a href="index.html">WEB</a></h1>
+    <input type="button" value="night" onclick="
+    var target = document.querySelector('body');  //변수를 사용해 반복되는 코드를 간결하게 만들 수 있다.
+    if(this.value === 'night'){
+    target.style.backgroundColor = 'black';
+    target.style.color = 'white';
+    this.value = 'day'; }
+    else{
+        target.style.backgroundColor = 'white';
+        target.style.color = 'black';
+        this.value = 'night';
+    }    
+    ">
+    <ol>
+        <li><a href="1.html">HTML</a></li>
+        <li><a href="2.html">CSS</a></li>
+        <li><a href="3.html">JavaScript</a></li>
+    </ol>
+    <h2>JavaScript</h2>
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita, tenetur quia vitae doloribus ratione dolorem ea? Quisquam officiis ipsam harum voluptatem? Maxime, dolorem quos. Libero, dicta iusto at cumque ipsa nulla veniam facilis. Magni minima expedita quisquam reiciendis consectetur quia.
+    </p>
+
+    <input type="button" value="night" onclick="
+    if(this.value === 'night'){
+    document.querySelector('body').style.backgroundColor = 'black';
+    document.querySelector('body').style.color = 'white';
+    this.value = 'day'; }
+    else{
+        document.querySelector('body').style.backgroundColor = 'white';
+        document.querySelector('body').style.color = 'black';
+        this.value = 'night';
+    }    
+    ">
+    <!--같은 버튼을 여러 개 만들면 id값을 모두 다르게 해줘야 하는 문제 발생. this를 통해 해결 가능-->
+    <!--코드를 유지, 보수하기 편리해졌다.-->
+</body>
+</html>
