@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열과 숫자</title>
+</head>
+<body>
+    <script>
+        console.log('alphabet'.toUpperCase());
+        document.write(1+1);        //2 - 숫자끼리 더하면 계산 결과를 출력한다.
+        document.write("<br>");
+        document.write("1"+"1");    //11 - 문자열끼리 더하면 계산을 하지 않고 이어붙인다.
+    </script>
+</body>
+</html>
