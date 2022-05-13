@@ -1,0 +1,56 @@
+/*주요 CSS 속성: input, label, 인접선택자, 형제선택자, 속성선택자:checked, opacity, transform, nth-child, position */
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #222;
+}
+
+a{
+    text-decoration: none;
+    color: #222;
+}
+
+/*Trigger Button*/
+input[id=trigger] {
+    display: none;
+}   /*하나의 문서 안에 id는 하나만 사용 가능하므로 id를 사용하면 중복 안됨. */
+label[for=trigger] {
+    position: relative;   /*부모요소*/
+    width: 40px;
+    height: 30px;
+    display: block;
+    cursor: pointer;      /*마우스를 올렸을 때 손가락 모양이 나오게 함*/
+}
+label[for=trigger] span {
+    position: absolute;   /*자식요소*/
+    height: 2px;
+    background-color: #000;
+    width: 100%;
+    transition: 0.3s;
+}
+label[for=trigger] span:nth-child(1){
+    top: 0%;
+}
+label[for=trigger] span:nth-child(2){
+    top: 50%;
+}
+label[for=trigger] span:nth-child(3){
+    top: calc(100% - 2px);
+}
+
+input[id=trigger]:checked + label[for=trigger]  /*클릭했을 때 인접선택자인 span을 변화시킴*/
+span:nth-child(1) {
+    top: 50%;       /*먼저 가운데로 내려줘야함.*/
+    transform: rotate(45deg);    /*45도 회전*/
+}
+input[id=trigger]:checked + label[for=trigger]  /*클릭했을 때 인접선택자인 span을 변화시킴*/
+span:nth-child(2) {
+    opacity: 0;
+}
+input[id=trigger]:checked + label[for=trigger]  /*클릭했을 때 인접선택자인 span을 변화시킴*/
+span:nth-child(3) {
+    top:50%;       /*먼저 위로 올려줘야함.*/
+    transform: rotate(-45deg);       /*반대방향으로 45도 회전*/
+}
