@@ -1,0 +1,74 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+    color: #222; 
+}
+.tab-inner{
+    width: 300px;
+    height: 350px;    /*버튼 자리때문에 height를 더 크게 만듦.*/
+    position: relative;
+}
+.content{
+    /*display: none;*/
+    position: absolute;
+    top:0;
+    left: 0;
+    opacity: 0;   /*opacity는 눈에만 안보이는거지 사라지는 게 아니다. 따라서 여러장을 겹친 후에 한 개 빼고 opacity를 0으로 주면
+    나머지 상품을 눌렀을 때 각각의 상세페이지로 가지 않고 가장 위에 있는 opacity 0인 상품의 상세페이지로 이동하는 오류가 생긴다.*/
+    visibility: hidden;  /*존재는 사라지되 자리는 유지하게 함.*/
+    transition: 0.3s;   /*opacity를 설정했으므로 transition도 설정하기*/
+}
+
+input[name=tabmenu]{
+    display: none;
+}
+.btn{
+    position: absolute;   /*inline-block이 됨.*/
+    width: 100%;          /*width 100%로 다시 btn이 차지하는 공간 넓혀주기*/
+    text-align: center;
+    bottom: 10px;
+    padding: 2px;
+}
+.btn label{
+    background-color: lightgray;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/*input type id가 typen일 때 sliden 보이기*/
+input[id=tab1]:checked ~ .slide1 {
+    /*display: block; 으로 써있던 부분을 opacity:1;로 바꿈.*/
+    /*opacity: 1; 와 visibility를 함께 사용해야함!*/
+    opacity: 1;
+    visibility: visible;
+}
+input[id=tab2]:checked ~ .slide2 {
+    /*display: block; 으로 써있던 부분을 opacity:1;로 바꿈.*/
+    /*opacity: 1; 와 visibility를 함께 사용해야함!*/
+    opacity: 1;
+    visibility: visible;
+}
+input[id=tab3]:checked ~ .slide3 {
+    /*display: block; 으로 써있던 부분을 opacity:1;로 바꿈.*/
+    /*opacity: 1; 와 visibility를 함께 사용해야함!*/
+    opacity: 1;
+    visibility: visible;
+}
+/*n번째 버튼 누르면 버튼 색이 crimson으로 변하게 만들기*/
+input[id=tab1]:checked ~ .btn label[for=tab1] {
+    background-color: crimson;
+}
+input[id=tab2]:checked ~ .btn label[for=tab2] {
+    background-color: crimson;
+}
+input[id=tab3]:checked ~ .btn label[for=tab3] {
+    background-color: crimson;
+}
