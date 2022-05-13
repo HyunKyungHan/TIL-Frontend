@@ -1,0 +1,72 @@
+input[name=tabmenu]{
+    display: none;
+}
+.tabs{
+    overflow: hidden;
+    position:relative; 
+    /*부모요소는 자식요소만큼의 높이값을 가지고 있다가 자식요소가 position:absolute;면 자식요소가 붕 뜨므로 
+    부모요소에게 강제로 높이값을 줘야함.*/
+    height: 100vh;
+}
+.items{
+    height: 100vh;
+    width: 300%;
+    transition: 0.5s;
+    position: absolute;
+    top:0;
+    left:0;
+}
+.items div{
+    height: 100vh;
+    float: left;
+    width: 33.33333%;      /*100%아님 주의*/
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.items div:nth-child(1){
+    background-color: teal;
+}
+.items div:nth-child(2){
+    background-color: dodgerblue;
+}
+.items div:nth-child(3){
+    background-color: yellowgreen;
+}
+.items div h1{
+    font-size: 80px;
+    font-weight: normal;
+}
+.btn{
+    position: absolute;      /*position:absolute;를 줬을 때 해당 div가 inline-block이 됨.*/
+    width:100%;
+    text-align: center;
+    bottom: 20px;
+}
+.btn label{
+    display: inline-block;
+    height: 5px;
+    width: 50px;
+    background-color: #fff;
+    cursor: pointer;
+}
+input[id=tab1]:checked ~ .tabs .items {
+    left: 0;
+}
+input[id=tab2]:checked ~ .tabs .items {
+    left: -100%;
+}
+input[id=tab3]:checked ~ .tabs .items {
+    left: -200%;
+}
+
+input[id=tab1]:checked ~ .btn label[for=tab1]{
+    background-color: #000;
+}
+input[id=tab2]:checked ~ .btn label[for=tab2]{
+    background-color: #000;
+}
+input[id=tab3]:checked ~ .btn label[for=tab3]{
+    background-color: #000;
+}
