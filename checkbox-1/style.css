@@ -1,0 +1,31 @@
+body{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5em;
+    margin: 0;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+.custom input[type=checkbox] {
+    display: none;
+}
+
+.custom label em {
+    border: 1px solid red;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;    /*inline-block끼리 높이를 맞춰줄 때 사용*/
+    margin-right: 5px;
+    background: url(./checkbox.png) no-repeat;
+    background-position: left center;
+}   
+.custom input[type=checkbox]:checked + label em{
+    background-position: right center;
+}
+

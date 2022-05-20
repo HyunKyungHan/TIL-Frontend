@@ -1,0 +1,48 @@
+body{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.5rem;
+    margin: 0;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+}
+.gnb a{
+    width: 300px;
+    display: block;
+    height: 40px;
+    position: relative;   /*부모요소*/
+    overflow: hidden;   
+}
+.gnb a:before,
+.gnb a:after {
+    content: attr(data-text);    /*before, after에는 무조건 content를 포함시켜야 한다. 여기서 attr 사용.*/
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    text-transform: uppercase;
+    transition: 0.3s;     /*항상 움직이는 요소에 transition값을 준다.*/
+}
+.gnb a:before{
+    background-color: crimson;
+    top:0;   /*css 에서 0을 쓸 때는 단위를 생략해도 된다.*/
+}
+.gnb a:after{
+    background-color: dodgerblue;
+    top: 100%;   /*부모요소의 height와 같음.(100%)*/
+}
+.gnb a:hover:before {
+    top: -100%;   /*부모요소의 상단 끝부분부터 시작한다는 것이다.*/
+}
+.gnb a:hover:after {
+    top:0;
+}  
+
+/*사실을 gnb before와 after이 함께 위로 올라가는 것이지만 overflow:hidden을 사용하면 이들이 교체되는 것처럼 보인다/*/
