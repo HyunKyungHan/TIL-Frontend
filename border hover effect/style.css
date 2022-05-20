@@ -1,0 +1,15 @@
+.gnb a{
+    position:relative;
+    padding: 5px;
+}
+.gnb a:before{ 
+    content: '';
+    position: absolute;   /*모든 before, after tag는 inline 요소라서 크기값을 가질 수 없다. 하지만 position:absolute;를 주면 모든 요소들이 inline-block으로 성질이 바뀐다. 따라서 크기 값을 가질 수 있게 된다.*/
+    background-color: crimson;
+    height: 1px;
+    width: 0;    /*마우스가 올라가기 전의 상태*/
+    transition: 0.3s;   /*before가 변하는 존재이므로 여기에다가 transition을 준다.*/
+}
+.gnb a:hover:before {
+    width: 100%;
+}

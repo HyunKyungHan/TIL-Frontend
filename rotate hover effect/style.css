@@ -1,0 +1,47 @@
+body{
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    line-height: 1.5rem;
+    margin: 0;
+    font-weight: 300;
+    background-color: #34465d;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+.gnb a {
+    text-transform: uppercase;
+    display: block;
+    position: relative;
+    width: 450px;
+    text-align: center;
+    padding: 15px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+.gnb a:before,
+.gnb a:after{
+    content:'';
+    position: absolute;
+    background-color: rgba(200, 200, 200, 0.1);
+    width: 100%;
+    height: 100%;
+    top:0;
+    left:0;
+    border: 1px solid #7e7e7e;
+    transition: 0.3s;
+};
+.gnb a:hover{
+    letter-spacing: 6px;
+}
+.gnb a:hover:before{
+    transform:rotate(45deg);
+}
+.gnb a:hover:after{
+    transform:rotate(-45deg);
+}
