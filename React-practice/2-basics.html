@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <!--react와 react-dom import하기-->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">  //babel적용하기
+        //html내용을 작성하지 않아도 reactjs(정확히는 react-dom)가 대신 생성해줌. 이때 (" ")안에는 html요소를 작성해야함.
+        const root = document.getElementById("root");
+        //함수형으로 고치는 방법1: function + return사용
+        function Title() {
+            return(
+                <h3 id="title" onMouseEnter={() => console.log("mouse enter")}>
+                Hello I'm a title
+                </h3>
+            );
+        } 
+        //함수형으로 고치는 방법2: arrow function
+        const Button = () => (
+            <button
+                style={
+                    {backgroundColor: "tomato",}
+                }
+                onClick={() => console.log("I'm clicked")}
+                >
+                    Click me
+            </button>
+        );
+        const container = (
+            //Title과 Button함수를 html태그처럼 취급하여 추가하기
+            //직접 생성한 component들의 첫 알파벳은 대문자여야 한다. 예컨대 그냥 <button />이라고 쓰면 JSX와 react는 html의 버튼이라고 인식함.
+            <div>
+                <Title />   
+                <Button />
+            </div>
+        );
+        ReactDOM.render(container, root);
+    </script>
+</html>

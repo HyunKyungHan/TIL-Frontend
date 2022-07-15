@@ -1,0 +1,52 @@
+<!--props: 부모component -> 자식component 데이터를 보낼 수 있게 해주는 방법-->
+<!DOCTYPE html>
+<html>
+    <body>
+        <div id="root"></div>
+    </body>
+    <!--react와 react-dom import하기-->
+    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">  //babel적용하기
+
+        function Btn({text, fontSize = 12}) {
+            return (
+                <button
+                style={{
+                    backgroundColor: "tomato",
+                    color:"white",
+                    padding: "10px 20px",
+                    border:0,
+                    borderRadius:10,
+                    //fontSize: big ? 18 : 16,  //부모 component에 삼항연산자를 사용해 자식들의 크기를 조건에 따라 다르게 만들 수 있다.
+                    fontSize,
+                }}
+                >
+                {text}
+                </button>
+            );
+        }
+        //부모요소에 state change가 발생하면 모든 자식 요소들이 re-render됨. 이게 추후에 앱이 느려지는 원인이 될 수 있음.
+        //자식 요소 중 변경사항이 없는 prop을 re-render하고 싶지 않다면 memo사용.
+        //PropType: 어떤 타입의 prop을 받고있는지 체크해줌.
+        //const MemorizedBtn = React.memo(Btn)
+        Btn.PropTypes = {
+            text: PropTypes.string.isRequired,   //Btn의 text prop은 string형태의 입력을 받아야만 함.
+            fontSize: PropTypes.number,
+        };
+        function App() {
+            //const [value, setValue] = React.useState("Save Changes");
+            //const changeValue = () => setValue("Revert Changes");
+            return(
+                <div>
+                    <Btn text="Save Changes" fontSize={18}/>
+                    <Btn text={"Continue"} />
+                </div>
+            );
+        }
+        const root = document.getElementById("root");
+        ReactDOM.render(<App /> , root);
+    </script>
+</html>
